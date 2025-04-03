@@ -1,5 +1,7 @@
 # MCP Flight Search Client
 
+![MCP Flight Search Client Demo](Images/mcp-flight-search-client.gif)
+
 A client application for the MCP Flight Search service. This client interacts with the [MCP Flight Search](https://github.com/arjunprabhulal/mcp-flight-search) backend.
 
 ## Description
@@ -39,6 +41,8 @@ pip install mcp-flight-search
 ### Starting the MCP Server
 
 You can start the MCP server using one of the following methods:
+
+![Starting the MCP Server](Images/start-server.png)
 
 ```
 # Using the command-line entry point
