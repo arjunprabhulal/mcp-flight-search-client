@@ -25,12 +25,6 @@ Required packages:
 - llama-index-tools-mcp
 - langchain-community
 
-## Usage
-
-```
-python mcp_flight_client.py
-```
-
 ## Prerequisites
 
 You need to have the [MCP Flight Search](https://github.com/arjunprabhulal/mcp-flight-search) service running.
@@ -54,9 +48,15 @@ mcp-flight-search --connection_type http
 python -m mcp_flight_search.server --connection_type http
 ```
 
+## Usage
+
+```
+python mcp_flight_client.py
+```
+
 ## Author
 
-For more articles on AI/ML and Generative AI, follow me on Medium: [Arjun Prabhulal](https://medium.com/@arjun-prabhulal)
+For more articles on AI/ML and Generative AI, follow me on Medium: [https://medium.com/@arjun-prabhulal](https://medium.com/@arjun-prabhulal)
 
 ## License
 
