@@ -11,6 +11,20 @@ This client application provides a user-friendly interface to interact with the 
 - `mcp_flight_client.py`: Main client implementation for interacting with the MCP Flight Search service
 - `prompt_templates.py`: Contains prompt templates for generating flight search queries
 
+## Installation
+
+Install the required packages for this client:
+
+```
+pip install -r requirements.txt
+```
+
+Required packages:
+- llama-index
+- llama-index-llms-ollama
+- llama-index-tools-mcp
+- langchain-community
+
 ## Usage
 
 ```
@@ -42,7 +56,7 @@ python -m mcp_flight_search.server --connection_type http
 
 ## Author
 
-For more articles on AI/ML and Generative AI, follow me on Medium: [https://medium.com/@arjun-prabhulal](https://medium.com/@arjun-prabhulal)
+For more articles on AI/ML and Generative AI, follow me on Medium: [Arjun Prabhulal](https://medium.com/@arjun-prabhulal)
 
 ## License
 
