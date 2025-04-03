@@ -82,8 +82,8 @@ python mcp_flight_client.py
 |                              |                |                              |
 |  Uses:                       |                |  Uses:                       |
 |  - llama-index               |                |  - Model Context Protocol    |
-|  - llama-index-llms-ollama   |                |  - SerpAPI for Google       |
-|    (with Llama 3.2)          |                |    Flights data             |
+|  - llama-index-llms-ollama   |                |  - SerpAPI for Google        |
+|    (with Llama 3.2)          |                |    Flights data              |
 |  - llama-index-tools-mcp     |                |                              |
 |  - langchain-community       |                |                              |
 +------------------------------+                +------------------------------+
