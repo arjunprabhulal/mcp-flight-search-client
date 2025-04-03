@@ -27,6 +27,17 @@ Required packages:
 - llama-index-tools-mcp
 - langchain-community
 
+### Installing Ollama
+
+This client uses Ollama to run Llama 3.2 locally. To install Ollama:
+
+1. Download Ollama from the [official website](https://ollama.com/download)
+2. Install and start the Ollama application
+3. Pull the Llama 3.2 model:
+```
+ollama pull llama3.2
+```
+
 ## Prerequisites
 
 You need to have the [MCP Flight Search](https://github.com/arjunprabhulal/mcp-flight-search) service running.
@@ -57,6 +68,48 @@ python -m mcp_flight_search.server --connection_type http
 ```
 python mcp_flight_client.py
 ```
+
+## Architecture
+
+```
+┌─────────────────────────────┐      HTTP      ┌─────────────────────────────┐
+│                             │ ◄────────────► │                             │
+│  MCP Flight Search Client   │                │  MCP Flight Search Server   │
+│  (This Repository)          │                │  (Backend Service)          │
+│                             │                │                             │
+│  - mcp_flight_client.py     │                │  - search_flights_tool      │
+│  - prompt_templates.py      │                │  - server_status            │
+│                             │                │                             │
+│  Uses:                      │                │  Uses:                      │
+│  - llama-index              │                │  - Model Context Protocol   │
+│  - llama-index-llms-ollama  │                │  - SerpAPI for Google      │
+│    (with Llama 3.2)         │                │    Flights data            │
+│  - llama-index-tools-mcp    │                │                             │
+│  - langchain-community      │                │                             │
+└─────────────────────────────┘                └─────────────────────────────┘
+                 ▲                                          ▲
+                 │                                          │
+                 │                                          │
+                 ▼                                          ▼
+┌─────────────────────────┐                       ┌──────────────────┐
+│                         │                       │                  │
+│  Ollama (Local LLM)     │                       │  Flight Search   │
+│  Running Llama 3.2      │                       │  APIs            │
+│                         │                       │                  │
+└─────────────────────────┘                       └──────────────────┘
+             ▲
+             │
+             ▼
+    ┌─────────────────┐
+    │                 │
+    │  User Interface │
+    │                 │
+    └─────────────────┘
+```
+
+This architecture shows how the MCP Flight Search Client connects to the MCP Flight Search Server over HTTP. The client uses various libraries to interact with the server, which in turn uses the Model Context Protocol (MCP) to provide flight search functionality through tools like `search_flights_tool`.
+
+The client leverages Ollama to run Llama 3.2 locally, providing powerful language model capabilities while maintaining privacy and reducing dependency on cloud services.
 
 ## Author
 
