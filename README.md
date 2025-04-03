@@ -71,40 +71,39 @@ python mcp_flight_client.py
 
 ## Architecture
 
-```
-┌─────────────────────────────┐      HTTP      ┌─────────────────────────────┐
-│                             │ ◄────────────► │                             │
-│  MCP Flight Search Client   │                │  MCP Flight Search Server   │
-│  (This Repository)          │                │  (Backend Service)          │
-│                             │                │                             │
-│  - mcp_flight_client.py     │                │  - search_flights_tool      │
-│  - prompt_templates.py      │                │  - server_status            │
-│                             │                │                             │
-│  Uses:                      │                │  Uses:                      │
-│  - llama-index              │                │  - Model Context Protocol   │
-│  - llama-index-llms-ollama  │                │  - SerpAPI for Google      │
-│    (with Llama 3.2)         │                │    Flights data            │
-│  - llama-index-tools-mcp    │                │                             │
-│  - langchain-community      │                │                             │
-└─────────────────────────────┘                └─────────────────────────────┘
-                 ▲                                          ▲
-                 │                                          │
-                 │                                          │
-                 ▼                                          ▼
-┌─────────────────────────┐                       ┌──────────────────┐
-│                         │                       │                  │
-│  Ollama (Local LLM)     │                       │  Flight Search   │
-│  Running Llama 3.2      │                       │  APIs            │
-│                         │                       │                  │
-└─────────────────────────┘                       └──────────────────┘
-             ▲
-             │
-             ▼
-    ┌─────────────────┐
-    │                 │
-    │  User Interface │
-    │                 │
-    └─────────────────┘
+```ascii
++------------------------------+      HTTP      +------------------------------+
+|                              | <------------> |                              |
+|  MCP Flight Search Client    |                |  MCP Flight Search Server    |
+|  (This Repository)           |                |  (Backend Service)           |
+|                              |                |                              |
+|  - mcp_flight_client.py      |                |  - search_flights_tool       |
+|  - prompt_templates.py       |                |  - server_status             |
+|                              |                |                              |
+|  Uses:                       |                |  Uses:                       |
+|  - llama-index               |                |  - Model Context Protocol    |
+|  - llama-index-llms-ollama   |                |  - SerpAPI for Google       |
+|    (with Llama 3.2)          |                |    Flights data             |
+|  - llama-index-tools-mcp     |                |                              |
+|  - langchain-community       |                |                              |
++------------------------------+                +------------------------------+
+              |                                               |
+              |                                               |
+              v                                               v
++------------------------------+                +------------------------------+
+|                              |                |                              |
+|  Ollama (Local LLM)          |                |  Flight Search               |
+|  Running Llama 3.2           |                |  APIs                        |
+|                              |                |                              |
++------------------------------+                +------------------------------+
+              |
+              |
+              v
++------------------------------+
+|                              |
+|  User Interface              |
+|                              |
++------------------------------+
 ```
 
 This architecture shows how the MCP Flight Search Client connects to the MCP Flight Search Server over HTTP. The client uses various libraries to interact with the server, which in turn uses the Model Context Protocol (MCP) to provide flight search functionality through tools like `search_flights_tool`.
