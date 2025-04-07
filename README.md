@@ -1,12 +1,18 @@
-# MCP Flight Search Client
+# MCP Llama3 Flight Search Client
 
 ![MCP Flight Search Client Demo](Images/mcp-flight-search-client.gif)
 
-A client application for the MCP Flight Search service. This client interacts with the [MCP Flight Search](https://github.com/arjunprabhulal/mcp-flight-search) backend.
+A client for the MCP Flight Search service using Ollama and Llama 3.2 to provide a user-friendly flight search interface with Model Context Protocol tools.
 
 ## Description
 
 This client application provides a user-friendly interface to interact with the Model Context Protocol (MCP) flight search service. It allows users to search for flights between airports with specified dates.
+
+## About
+
+ A client for the MCP Flight Search service using Ollama and Llama 3.2 to provide a user-friendly flight search interface with Model Context Protocol tools
+
+github.com/arjunprabhulal/mcp-llama3-client
 
 ## Files
 
@@ -74,8 +80,8 @@ python mcp_flight_client.py
 ```ascii
 +------------------------------+      HTTP      +------------------------------+
 |                              | <------------> |                              |
-|  MCP Flight Search Client    |                |  MCP Flight Search Server    |
-|  (This Repository)           |                |  (Backend Service)           |
+|  MCP Llama3 Flight Search    |                |  MCP Flight Search Server    |
+|  Client (This Repository)    |                |  (Backend Service)           |
 |                              |                |                              |
 |  - mcp_flight_client.py      |                |  - search_flights_tool       |
 |  - prompt_templates.py       |                |  - server_status             |
@@ -106,7 +112,7 @@ python mcp_flight_client.py
 +------------------------------+
 ```
 
-This architecture shows how the MCP Flight Search Client connects to the MCP Flight Search Server over HTTP. The client uses various libraries to interact with the server, which in turn uses the Model Context Protocol (MCP) to provide flight search functionality through tools like `search_flights_tool`.
+This architecture shows how the MCP Llama3 Flight Search Client connects to the MCP Flight Search Server over HTTP. The client uses various libraries to interact with the server, which in turn uses the Model Context Protocol (MCP) to provide flight search functionality through tools like `search_flights_tool`.
 
 The client leverages Ollama to run Llama 3.2 locally, providing powerful language model capabilities while maintaining privacy and reducing dependency on cloud services.
 
